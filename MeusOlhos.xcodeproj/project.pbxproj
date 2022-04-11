@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00CE62392803B14A00D7DBD7 /* CaptureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE62382803B14A00D7DBD7 /* CaptureManager.swift */; };
 		A192124C1FA6BE8F00F371EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192124B1FA6BE8F00F371EA /* AppDelegate.swift */; };
 		A192124E1FA6BE8F00F371EA /* ObjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A192124D1FA6BE8F00F371EA /* ObjectsViewController.swift */; };
 		A19212511FA6BE8F00F371EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A192124F1FA6BE8F00F371EA /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00CE62382803B14A00D7DBD7 /* CaptureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureManager.swift; sourceTree = "<group>"; };
 		A19212481FA6BE8F00F371EA /* MeusOlhos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeusOlhos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A192124B1FA6BE8F00F371EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A192124D1FA6BE8F00F371EA /* ObjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectsViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				A192124B1FA6BE8F00F371EA /* AppDelegate.swift */,
 				A192124D1FA6BE8F00F371EA /* ObjectsViewController.swift */,
+				00CE62382803B14A00D7DBD7 /* CaptureManager.swift */,
 				A192124F1FA6BE8F00F371EA /* Main.storyboard */,
 				A19212521FA6BE8F00F371EA /* Assets.xcassets */,
 				A19212541FA6BE8F00F371EA /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			files = (
 				A192124E1FA6BE8F00F371EA /* ObjectsViewController.swift in Sources */,
 				A192124C1FA6BE8F00F371EA /* AppDelegate.swift in Sources */,
+				00CE62392803B14A00D7DBD7 /* CaptureManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
