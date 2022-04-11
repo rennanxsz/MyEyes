@@ -17,13 +17,31 @@ class CaptureManager {
         return captureSession
     }()
     
+    weak var videoBufferDelegate: AVCaptureVideoDataOutputSampleBufferDelegate?
+    
     init() {
         
     }
     func startCameraCapture() -> AVCaptureVideoPreviewLayer? {
         if askForPermission() {
             guard let captureDevice = AVCaptureDevice.default(for: .video) else {return nil}
+            do {
+            let input = try AVCaptureDeviceInput (device: captureDevice)
+                captureSession.addInput(input)
+            } catch {
+                print(error.localizedDescription)
+                return nil
+                
+            }
+            captureSession.startRunning()
+            let videoDataOutput = AVCaptureVideoDataOutput()
+            videoDataOutput.setSampleBufferDelegate(videoBufferDelegate, queue: DispatchQueue(label: "cameraQueue"))
+            captureSession.addOutput(videoDataOutput)
             
+            let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+            return previewLayer
+        } else {
+            return nil
         }
     }
     
