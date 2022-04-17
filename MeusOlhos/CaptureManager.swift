@@ -22,6 +22,7 @@ class CaptureManager {
     init() {
         
     }
+    
     func startCameraCapture() -> AVCaptureVideoPreviewLayer? {
         if askForPermission() {
             guard let captureDevice = AVCaptureDevice.default(for: .video) else {return nil}

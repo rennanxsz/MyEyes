@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 class ObjectsViewController: UIViewController {
     
@@ -14,10 +15,22 @@ class ObjectsViewController: UIViewController {
     @IBOutlet weak var lbIdentifier: UILabel!
     @IBOutlet weak var lbConfidence: UILabel!
     
+    lazy var captureManager: CaptureManager = {
+        let captureManager = CaptureManager()
+        captureManager.videoBufferDelegate = self
+        return captureManager
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @IBAction func analyse(_ sender: UIButton) {
+    }
+}
+
+extension ObjectsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        <#code#>
     }
 }
