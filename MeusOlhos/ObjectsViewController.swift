@@ -26,6 +26,12 @@ class ObjectsViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        lbConfidence.text = ""
+        lbIdentifier.text = ""
+    }
+    
     @IBAction func analyse(_ sender: UIButton) {
     }
 }
@@ -33,6 +39,9 @@ class ObjectsViewController: UIViewController {
 extension ObjectsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didDrop sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
+        guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {return}
+        
+        //Faz a analise do modelo
         guard let model = try? VNCoreMLModel(for: VGG16().model) else {return}
         let request = VNCoreMLRequest(model: model) { (request, error) in
             guard let results = request.results as? [VNClassificationObservation] else {return}
@@ -47,8 +56,8 @@ extension ObjectsViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 self.lbConfidence.text = "\(confidence)%"
             }
         }
-        
-        
+        //faz a analise da imagem.
+        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
         
     }
 }
