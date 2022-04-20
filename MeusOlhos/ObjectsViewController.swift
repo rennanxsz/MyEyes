@@ -24,12 +24,13 @@ class ObjectsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        lbConfidence.text = ""
+        lbIdentifier.text = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        lbConfidence.text = ""
-        lbIdentifier.text = ""
+        
     }
     
     @IBAction func analyse(_ sender: UIButton) {
